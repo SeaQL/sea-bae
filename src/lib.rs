@@ -103,7 +103,7 @@
 
 extern crate proc_macro;
 
-use heck::SnakeCase;
+use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
 use proc_macro_error::*;
 use quote::*;
@@ -162,12 +162,8 @@ impl FromAttributes {
                     use syn::spanned::Spanned;
 
                     for attr in attrs {
-                        match attr.path.get_ident() {
-                            Some(ident) if ident == #attr_name => {
-                                return Some(syn::parse2::<Self>(attr.tokens.clone())).transpose()
-                            }
-                            // Ignore other attributes
-                            _ => {},
+                        if attr.path().is_ident(#attr_name) {
+                            return Some(attr.parse_args::<Self>()).transpose()
                         }
                     }
 
@@ -211,8 +207,8 @@ impl FromAttributes {
             } else {
                 quote! {
                     #pattern => {
-                        content.parse::<syn::Token![=]>()?;
-                        #field_name = std::option::Option::Some(content.parse()?);
+                        input.parse::<syn::Token![=]>()?;
+                        #field_name = std::option::Option::Some(input.parse()?);
                     }
                 }
             }
@@ -261,11 +257,8 @@ impl FromAttributes {
                 fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
                     #(#variable_declarations)*
 
-                    let content;
-                    syn::parenthesized!(content in input);
-
-                    while !content.is_empty() {
-                        let bae_attr_ident = content.parse::<syn::Ident>()?;
+                    while !input.is_empty() {
+                        let bae_attr_ident = input.parse::<syn::Ident>()?;
 
                         match &*bae_attr_ident.to_string() {
                             #(#match_arms)*
@@ -284,7 +277,7 @@ impl FromAttributes {
                             }
                         }
 
-                        content.parse::<syn::Token![,]>().ok();
+                        input.parse::<syn::Token![,]>().ok();
                     }
 
                     #(#unwrap_mandatory_fields)*

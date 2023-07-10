@@ -13,11 +13,11 @@ repository = "https://github.com/SeaQL/sea-bae.git"
 version = "0.2.0"
 
 [dependencies]
-syn = { version = "1", features = ["full", "extra-traits"] }
+syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1"
 proc-macro-error = "1"
-heck = "0.3"
+heck = "0.4"
 
 [dev_dependencies]
 trybuild = "1"
