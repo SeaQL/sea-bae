@@ -1,9 +1,9 @@
-//! `bae` is a crate for proc macro authors, which simplifies parsing of attributes. It is
+//! `sea-bae` is a crate for proc macro authors, which simplifies parsing of attributes. It is
 //! heavily inspired by [`darling`](https://crates.io/crates/darling) but has a significantly
 //! simpler API.
 //!
 //! ```rust
-//! use bae::FromAttributes;
+//! use sea-bae::FromAttributes;
 //!
 //! #[derive(
 //!     Debug,
@@ -91,7 +91,7 @@
 //! # }
 //! ```
 
-#![doc(html_root_url = "https://docs.rs/bae/0.1.7")]
+#![doc(html_root_url = "https://docs.rs/sea-bae/0.2.0")]
 #![allow(clippy::let_and_return)]
 #![deny(
     unused_variables,
