@@ -16,7 +16,7 @@ version = "0.2.0"
 syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1"
-proc-macro-error = "1"
+proc-macro-error2 = "2"
 heck = "0.4"
 
 [dev_dependencies]
