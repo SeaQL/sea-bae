@@ -4,13 +4,9 @@ All user visible changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/), as described
 for Rust libraries in [RFC #1105](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md)
 
-## Unreleased
+## 0.2.1
 
-None.
-
-### Breaking changes
-
-None.
+- Use `proc-macro-error2` to address https://rustsec.org/advisories/RUSTSEC-2024-0370
 
 ## 0.1.7
 
