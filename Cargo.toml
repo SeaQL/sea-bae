@@ -16,10 +16,10 @@ version = "0.2.1"
 syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1"
-proc-macro-error2 = "2"
+proc-macro-error3 = "3"
 heck = "0.4"
 
-[dev_dependencies]
+[dev-dependencies]
 trybuild = "1"
 
 [lib]

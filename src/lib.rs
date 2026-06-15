@@ -105,7 +105,7 @@ extern crate proc_macro;
 
 use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
-use proc_macro_error2::{abort, proc_macro_error};
+use proc_macro_error3::{abort, proc_macro_error};
 use quote::*;
 use syn::{spanned::Spanned, *};
 
