@@ -10,13 +10,12 @@ license = "MIT"
 name = "sea-bae"
 readme = "README.md"
 repository = "https://github.com/SeaQL/sea-bae.git"
-version = "0.2.1"
+version = "0.2.2"
 
 [dependencies]
 syn = { version = "2", features = ["full", "extra-traits"] }
 quote = "1"
 proc-macro2 = "1"
-proc-macro-error2 = "2"
 heck = "0.4"
 
 [dev_dependencies]
